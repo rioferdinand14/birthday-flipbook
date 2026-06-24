@@ -2,8 +2,6 @@ import React, { forwardRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import "../App.css";
 // Step back once from components, then into images
-import pic1 from '../images/pic1.jpeg'; 
-import pic2 from '../images/pic2.jpg';
 
 // 1. Create a Page component using forwardRef (Required by react-pageflip)
 const Page = forwardRef((props, ref) => {
