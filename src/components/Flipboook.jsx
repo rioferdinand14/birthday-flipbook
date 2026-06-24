@@ -98,7 +98,7 @@ function App() {
           {/* Page 2: A sweet message */}
           <Page number={2}>
             <div className="text-page">
-              <h3 style={{ marginBottom: '32px' }}>
+              <h3 style={{ marginBottom: "32px" }}>
                 Happiest Birthday to You, Sayang
               </h3>
               <p>
@@ -109,7 +109,8 @@ function App() {
               <p>
                 Semoga di umur kamu yang sekarang semua yang kamu doakan bisa
                 terwujud, semua yang kamu harapkan akan berubah jadi sesuatu
-                yang kamu banggakan. Aku yakin kamu selalu kuat untuk mengejar yang kamu inginkan.
+                yang kamu banggakan. Aku yakin kamu selalu kuat untuk mengejar
+                yang kamu inginkan.
               </p>
               <p>
                 Ga banyak yang mau aku tulis, pokoknya aku akan selalu ada buat
@@ -117,7 +118,8 @@ function App() {
                 sama-sama
               </p>
               <p>
-                Sampai ketemu siang nanti ya, Aku udah siapin sesuatu buat kamu 🫶🏻
+                Sampai ketemu siang nanti ya, Aku udah siapin sesuatu buat kamu
+                🫶🏻
               </p>
             </div>
           </Page>
@@ -125,8 +127,15 @@ function App() {
           {/* Page 3: First Memory/Photo */}
           <Page number={3}>
             <div className="image-page">
-              <img src="/images/pic1.jpeg" alt="Memory 1" />
-              <img src="/images/pic2.jpg" alt="Memory 2" />
+              // Use the base path variable that Vite provides
+              <img
+                src={import.meta.env.BASE_URL + "images/pic1.jpeg"}
+                alt="Memory 1"
+              />
+              <img
+                src={import.meta.env.BASE_URL + "images/pic2.jpg"}
+                alt="Memory 2"
+              />
               <p>Such a Hottie. Never fails</p>
             </div>
           </Page>
