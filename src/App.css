@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  background-color: #E7E7E7; /* Soft pink background */
+  font-family: 'Georgia', serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.title {
+  color: #be185d; /* Deep pink text */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Page base styling */
+.page {
+  background-color: #FFFAF1;
+  border: 1px solid #cccccc;
+  border-radius: 3px; 
+  
+  /* 2. Create the 3D Spine and Paper Thickness */
+  box-shadow: 
+    inset 15px 0 30px rgba(0,0,0,0.06), /* Creates the deep crease near the binding */
+    inset -3px 0 10px rgba(0,0,0,0.02), /* Adds a slight curve to the outer edge */
+    2px 2px 3px rgba(0,0,0,0.05);       /* Gives the edge a tiny drop-shadow for thickness */
+    
+  overflow: hidden;
+
+  background-image: radial-gradient(#f472b6 0.5px, transparent 0.5px);
+  background-size: 15px 15px;
+}
+
+.page-content {
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  box-sizing: border-box;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* Specific page layouts */
+.cover {
+  background-color: #FFFAF1; /* Pink cover */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #831843;
+  background-image: radial-gradient(#f9a8d4 1px, transparent 1px);
+  background-size: 20px 20px;
+  
+}
+
+.cover h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.text-page h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #be185d;
+  margin-bottom: 10px;
+}
+
+.image-page img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.text-page p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+/* Smooth sliding animation */
+.flipbook-wrapper {
+  transition: transform 0.6s ease-in-out;
+  /* Optional: adds a nice realistic shadow under the whole book */
+  /* box-shadow: 0 10px 30px rgb(136, 177, 231);  */
+  width: 1000px; /* Forces enough room for a 2-page spread */
+  max-width: 100vw;
+
+  box-shadow: 
+    1px 1px 0 #fff, 
+    2px 2px 0 #eee, 
+    3px 3px 0 #fff, 
+    4px 4px 0 #ddd, 
+    5px 5px 0 #fff, 
+    15px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Only apply the shift on desktop sizes where it shows a 2-page spread */
+@media (min-width: 768px) {
+  .flipbook-wrapper.is-cover {
+    transform: translateX(-25%);
+  }
+}
+
+/* 1. The Decorative Gold Frame (Now drawn with CSS!) */
+.decorative-frame {
+  position: relative;
+  width: 88%;      /* Pushes the frame closer to the edges */
+  height: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Outer Gold Border */
+  border: 2px solid rgba(202, 138, 4, 0.6); 
+  border-radius: 15px;
+}
+
+/* 2. The Inner Pink Dashed Border */
+.decorative-frame::before {
+  content: '';
+  position: absolute;
+  top: 8px;     /* Distance from the gold border */
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  
+  border: 1.5px dashed rgba(244, 114, 182, 0.8);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* 3. The Content Box */
+.frame-content {
+  z-index: 10;
+  padding: 20px;
+  width: 80%;
+  
+  /* Make the background totally transparent so the lines show through! */
+  background: transparent; 
+  box-shadow: none; 
+  text-align: center;
+}
+
+/* 3. The Corner Sparkles */
+.corner-sparkle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+}
+
+/* Pushes the sparkles into the exact corners */
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+/* 4. The Cover Date */
+.cover-date {
+  font-family: 'Open Sans', sans-serif;
+  color: #ca8a04; 
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
