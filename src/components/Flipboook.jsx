@@ -127,7 +127,6 @@ function App() {
           {/* Page 3: First Memory/Photo */}
           <Page number={3}>
             <div className="image-page">
-              // Use the base path variable that Vite provides
               <img
                 src={import.meta.env.BASE_URL + "images/pic1.jpeg"}
                 alt="Memory 1"
