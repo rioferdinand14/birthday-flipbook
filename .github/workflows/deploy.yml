@@ -32,11 +32,16 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        
+      # FIX 1: We added this step to actually build your Vite app
+      - name: Build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          # FIX 2: Changed from ./out to ./dist so it finds your files!
+          path: ./dist 
 
   deploy:
     environment:
